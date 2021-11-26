@@ -21,7 +21,7 @@ setup(
     long_description_content_type="text/markdown",
     project_urls={  # Optional
         'Documentation': "https://cacao.readthedocs.io/",
-        'Source': '',
+        'Source': 'https://github.com/euanrussano/cacao',
     },
     #    url="https://cacao.readthedocs.io/",
     author="Euan Russano",
