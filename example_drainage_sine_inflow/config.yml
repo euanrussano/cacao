@@ -1,0 +1,6 @@
+mode: simulation
+start_time: 0.0
+end_time: 5.0
+time_step: 0.01
+initial_states:
+  Ssim: 0.0

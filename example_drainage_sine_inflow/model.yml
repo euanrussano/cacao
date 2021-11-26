@@ -1,0 +1,19 @@
+description: a simple reservoir
+components:
+  reservoir:
+    id: Reservoir1
+    storageCharacteristics:
+      storageTable:
+        elevations: [ 0.0, 2.0]
+        values: [ 0.0, 2.0]
+    states:
+      storage: Ssim
+    inputs:
+      inflow: Iobs
+      release: Qpump
+    outputs:
+      inflow: Isim
+      storage: Ssim
+      level: Hsim
+      pressure: Psim
+      release: Qsim
