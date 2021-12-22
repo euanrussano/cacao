@@ -12,12 +12,3 @@ Welcome to Cacao's documentation!
 
    source/api/flowsheet
    source/api/hydraulics
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

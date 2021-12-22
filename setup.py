@@ -15,7 +15,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 # This call to setup() does all the work
 setup(
     name="cacao",
-    version="0.0.2",
+    version="0.0.3",
     description="Library for dynamic optimization/simulation",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -25,7 +25,7 @@ setup(
     },
     #    url="https://cacao.readthedocs.io/",
     author="Euan Russano",
-    author_email="euanrussano@email.com",
+    author_email="euanrussano@gmail.com",
     license="MIT",
     classifiers=[
         "Intended Audience :: Developers",
@@ -38,5 +38,5 @@ setup(
     ],
     packages=["cacao"],
     include_package_data=True,
-    install_requires=["numpy", "scipy", "pyyaml"]
+    install_requires=["numpy", "scipy"]
 )
