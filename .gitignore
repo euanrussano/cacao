@@ -204,6 +204,8 @@ $RECYCLE.BIN/
 
 # sphinx build folder
 _build
+_static
+_templates
 
 # Compiled source #
 ###################
@@ -245,3 +247,6 @@ Thumbs.db
 *~
 
 # END Sphinx ignore
+
+__pycache__/
+*.py[cod]

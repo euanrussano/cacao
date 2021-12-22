@@ -3,9 +3,22 @@ from .generics import Block
   
         
 class FlowRelease(Block):
+    """
+    Hydraulic orifice with constant cross-sectional area. To avoid some numerical issues, the 
+    upstream height (h) is clipped to (0, +inf).
+
+    .. math::
+
+        Q(t) = Cv\sqrt{h(t)}
     
-    def __init__(self, Cv, flowrate="Q1", state_idx=[], output_idx=[]):
-        super().__init__(state_idx, output_idx)
+    :param Cv: Flow discharge coefficient
+    :type Cv: float
+    :param flowrate: The name of the flowrate variable. Must be unique along blocks in the same cacao.flowsheet.Flowsheet.
+    :type flowrate: str
+    """
+    
+    def __init__(self, Cv, flowrate="Q1"):
+        super().__init__()
         self.Cv = Cv
         
         self.flowrate = flowrate
@@ -28,9 +41,21 @@ class FlowRelease(Block):
         return resid
     
 class FlowConstant(Block):
+    """
+    Constant flowrate, as provided by pump.
+
+    .. math::
+
+        Q(t) = Constant
     
-    def __init__(self, qout, flowrate='Q1', state_idx=[], output_idx=[]):
-        super().__init__(state_idx, output_idx)
+    :param qout: A constant flowrate value.
+    :type qout: float
+    :param flowrate: The name of the flowrate variable. Must be unique along blocks in the same cacao.flowsheet.Flowsheet.
+    :type flowrate: str
+    """
+    
+    def __init__(self, qout, flowrate='Q1'):
+        super().__init__()
         self.value = qout
         
         self.flowrate = flowrate
@@ -50,9 +75,21 @@ class FlowConstant(Block):
         return resid
     
 class FlowSource(Block):
+    """
+    A continuous source of fluid defined by a function qout(t)
+
+    .. math::
+
+        Q(t) = qout(t)
     
-    def __init__(self, q_in, flowrate="Qin", state_idx=[], output_idx=[]):
-        super().__init__(state_idx, output_idx)
+    :param qout: A function qout(t) providing the values of flowrate (should be continuous). e.g qout = lambda t: 0.4
+    :type qout: Callable[float][float]
+    :param flowrate: The name of the flowrate variable. Must be unique along blocks in the same cacao.flowsheet.Flowsheet.
+    :type flowrate: str
+    """
+    
+    def __init__(self, q_in, flowrate="Qin"):
+        super().__init__()
         self.rule = q_in
         
         self.flowrate = flowrate
@@ -70,9 +107,27 @@ class FlowSource(Block):
         return resid
     
 class Reservoir(Block):
+    """
+    A container that can hold a volume V of fluid.
+
+    .. math::
+
+        dV/dt = Qin(t) - Qout(t)
+
+        h(t) = \frac{V(t)}{Area}
     
-    def __init__(self, Area, IC=0.0, volume='V1', height='h1', state_idx=[], output_idx=[]):
-        super().__init__(state_idx, output_idx)
+    :param Area: Constant cross section area.
+    :type Area: float
+    :param IC: Initial Volume in the container. Defaults to 0.0.
+    :type IC: float, optional
+    :param volume: The name of the volume variable. Must be unique along blocks in the same cacao.flowsheet.Flowsheet.
+    :type IC: str
+    :param height: The name of the height variable. Must be unique along blocks in the same cacao.flowsheet.Flowsheet.
+    :type IC: str
+    """
+    
+    def __init__(self, Area, IC=0.0, volume='V1', height='h1'):
+        super().__init__()
         self.Area = Area
         
         self.volume = volume
@@ -80,9 +135,6 @@ class Reservoir(Block):
         setattr(self, self.volume, IC)
         setattr(self, 'der_' + self.volume, 0.0)
         setattr(self, self.height, 0.0)
-        #self.V = IC
-        #self.der_V = 0.0
-        #self.h = 0.0
         
         self.Qin = 0.0
         self.Qout = 0.0

@@ -10,6 +10,9 @@ Welcome to Cacao's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   source/api/flowsheet
+   source/api/hydraulics
+
 
 
 Indices and tables

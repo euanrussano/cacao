@@ -1,6 +1,14 @@
 import numpy as np
 
 class Block:
+    """
+    An interface for dynamic elements that can be simulated.
+
+    :param state_idx: tuples of (state_name, idx) e.g state_idx = [('Q',0),('T',1)]
+    :type state_idx: list of tuples
+    :param output_idx: tuples of (output_name, idx) e.g output_idx = [('Q',0),('T',1)]
+    :type output_idx: list of tuples
+    """
     def __init__(self, state_idx=[], output_idx=[]):
         '''
         state_idx = [('Q',0),('T',1)]
