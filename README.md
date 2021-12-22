@@ -9,11 +9,15 @@ pip install cacao
 ### Get started
 Create a gravity drained tank. The mass balance is:
 
-<img src="https://render.githubusercontent.com/render/math?math=\frac{dV}[dt]=Q_{in}-Q_{out}">
+<img src="https://render.githubusercontent.com/render/math?math=\frac{dV}{dt}=Q_{in}-Q_{out}">
+
+The height of fluid  in the reservoir is:
+
+<img src="https://render.githubusercontent.com/render/math?math=h=\frac{V}{A}">
 
 Considering a constant inflow, the flow at the outlet can be considered, according Bernoulli equation:
 
-<img src="https://render.githubusercontent.com/render/math?math=Q_out=Cv\sqrt{h}">
+<img src="https://render.githubusercontent.com/render/math?math=Q_{out}=Cv\sqrt{h}">
 
 ```python
 import numpy as np
