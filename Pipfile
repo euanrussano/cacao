@@ -6,7 +6,8 @@ name = "pypi"
 [packages]
 numpy = "*"
 scipy = "*"
-pyyaml = "*"
+matplotlib = "*"
+tqdm = "*"
 
 [dev-packages]
 
