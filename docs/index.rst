@@ -10,5 +10,6 @@ Welcome to Cacao's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   source/api/flowsheet
-   source/api/hydraulics
+   source/api/problems
+   source/api/hydraulic
+   source/examples/examples

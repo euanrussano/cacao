@@ -2,5 +2,5 @@
 Hydraulic
 ==============
 
-.. automodule:: cacao.hydraulics
+.. automodule:: cacao.components.hydraulic
     :members:
