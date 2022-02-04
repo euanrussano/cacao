@@ -2,13 +2,9 @@
 # Example extracted from Example 32.2 in 
 # Himmelblau, D. M., & Riggs, J. B. (2006). Basic principles and calculations in chemical engineering. FT press.
 ## ---------------------------------------------
-##-- Workaround to make the cacao library in path if it's not installed but in parent directory
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..','..')))
-##--
 
 # imports
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
